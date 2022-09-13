@@ -1,12 +1,20 @@
 import Vue from 'vue';
+import registerComponents from '@/components/register-components/register-components';
+import registerDirectives from '@/directives';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import '@/assets/style/main.scss';
 
 Vue.config.productionTip = false;
 
-new Vue({
+const app = new Vue({
   router,
   store,
   render: (h) => h(App),
-}).$mount('#app');
+});
+
+registerDirectives(Vue);
+registerComponents(Vue);
+
+app.$mount('#app');
